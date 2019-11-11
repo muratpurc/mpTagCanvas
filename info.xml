@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module><name>mp_tag_canvas</name><description>mpTagCanvas is a module which uses TagCanvas draw and animate a HTML5  canvas based tag cloud&#13;
+Author: Murat Purc &lt;murat@purc.de&gt;&#13;
+Link: http://forumlink&#13;
+Link: http://pagelink&#13;
+Version: 0.1</description><type>content</type><alias>mp_tag_canvas</alias></module>
