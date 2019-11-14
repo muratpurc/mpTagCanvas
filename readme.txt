@@ -1,4 +1,4 @@
-CONTENIDO Modul mpTagCanvas 0.1 für CONTENIDO 4.9
+CONTENIDO CMS Modul mpTagCanvas zum Generieren einer Tag-Cloud
 
 ################################################################################
 TOC (Table of contents)
