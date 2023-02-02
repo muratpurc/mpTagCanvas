@@ -77,7 +77,7 @@ In der Artikelkonfiguration die gewünschten Optionen setzen.
 ## mpTagCanvas Modul Links
 
 mpTagCanvas Modul für CONTENIDO CMS 4.9.x:
-http://www.purc.de/playground-cms_contenido_4.9-modul_mptagcanvas_-_tagcanvas_html5_canvas_tag-cloud-a.132.html
+https://www.purc.deee/playground-cms_contenido_4.9-modul_mptagcanvas_-_tagcanvas_html5_canvas_tag-cloud-a.132.html
 
 mpTagCanvas im CONTENIDO Forum unter Module 4.9.x:
 http://forum.contenido.org/viewtopic.php?t=34746

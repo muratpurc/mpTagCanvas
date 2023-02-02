@@ -5,9 +5,8 @@
  * @package     Module
  * @subpackage  mpTagCanvas
  * @author      Murat Purc <murat@purc.de>
- * @copyright   Copyright (c) 2013 Murat Purc (http://www.purc.de)
+ * @copyright   Murat Purc (https://www.purc.de)
  * @license     http://www.gnu.org/licenses/gpl-2.0.html - GNU General Public License, version 2
- * @version     $Id: $
  */
 
 
