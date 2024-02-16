@@ -9,6 +9,10 @@
  * @license     http://www.gnu.org/licenses/gpl-2.0.html - GNU General Public License, version 2
  */
 
+/**
+ * @var int $cCurrentModule
+ * @var int $cCurrentContainer
+ */
 
 ################################################################################
 ########## Initialization/Settings
@@ -20,7 +24,7 @@ $client = cRegistry::getClientId();
 $lang = cRegistry::getLanguageId();
 
 // Module configuration
-$aModuleConfiguration = array(
+$aModuleConfiguration = [
     'debug' => false,
     'name' => 'mpTagCanvas',
     'idmod' => $cCurrentModule,
@@ -107,12 +111,12 @@ $aModuleConfiguration = array(
     'cfg' => cRegistry::getConfig(),
     'client' => $client,
     'lang' => $lang,
-);
+];
 //##echo "<pre>" . print_r($aModuleConfiguration, true) . "</pre>";
 
-$aModuleTranslations = array(
+$aModuleTranslations = [
     'MSG_SELECT_NONE' => mi18n('MSG_SELECT_NONE')
-);
+];
 
 // Create mpTagCanvas module instance
 $oModule = new ModuleMpTagCanvas($aModuleConfiguration, $aModuleTranslations);
@@ -121,94 +125,94 @@ $exampleMarkup = '<a href="http://www.contenido.org" title="CONTENIDO" target="_
 <a href="http://forum.contenido.com" title="CONTENIDO forum" target="_blank">CONTENIDO Forum</a>';
 $example = '<span class="code">' . nl2br(conHtmlSpecialChars($exampleMarkup)) . '</span>';
 
-$aModuleInputs = array(
+$aModuleInputs = [
     // common settings
-    '_delemiter_common' => array('delemiter' => mi18n("MSG_DELEMITER_COMMON")),
-    'noCanvasStyles' => array("var" => "CMS_VAR[2]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_NO_CANVAS_STYLES")),
-    'canvasStyles' => array("var" => "CMS_VAR[3]", "default" => "width:400px;height:300px;", "type" => "text", "info" => mi18n("MSG_CANVAS_STYLES")),
+    '_delemiter_common' => ['delemiter' => mi18n("MSG_DELEMITER_COMMON")],
+    'noCanvasStyles' => ["var" => "CMS_VAR[2]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_NO_CANVAS_STYLES")],
+    'canvasStyles' => ["var" => "CMS_VAR[3]", "default" => "width:400px;height:300px;", "type" => "text", "info" => mi18n("MSG_CANVAS_STYLES")],
 
-    'manualInput' => array("var" => "CMS_VAR[1]", "type" => "textarea", "info" => sprintf(mi18n("MSG_MANUAL_TAGS"), $example)),
-    'categories' => array("var" => "CMS_VAR[4]", "type" => "select", "info" => mi18n("MSG_CATEGORIES")),
-    'categoriesSel' => array("var" => "CMS_VAR[5]", "type" => "hidden", "info" => mi18n("MSG_CATEGORY_SEL")),
-    'categoriesStartArticle' => array("var" => "CMS_VAR[6]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_CATEGORY_START_ARTICLE")),
-    'categoriesOfflineArticle' => array("var" => "CMS_VAR[7]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_CATEGORY_OFFLINE_ARTICLE")),
-    'categoriesMaxArticle' => array("var" => "CMS_VAR[8]", "default" => "null", "type" => "text", "info" => mi18n("MSG_CATEGORY_MAX_ARTICLES")),
+    'manualInput' => ["var" => "CMS_VAR[1]", "type" => "textarea", "info" => sprintf(mi18n("MSG_MANUAL_TAGS"), $example)],
+    'categories' => ["var" => "CMS_VAR[4]", "type" => "select", "info" => mi18n("MSG_CATEGORIES")],
+    'categoriesSel' => ["var" => "CMS_VAR[5]", "type" => "hidden", "info" => mi18n("MSG_CATEGORY_SEL")],
+    'categoriesStartArticle' => ["var" => "CMS_VAR[6]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_CATEGORY_START_ARTICLE")],
+    'categoriesOfflineArticle' => ["var" => "CMS_VAR[7]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_CATEGORY_OFFLINE_ARTICLE")],
+    'categoriesMaxArticle' => ["var" => "CMS_VAR[8]", "default" => "null", "type" => "text", "info" => mi18n("MSG_CATEGORY_MAX_ARTICLES")],
 
     // tag canvas options
-    '_delemiter_tagcanvas' => array('delemiter' => mi18n("MSG_DELEMITER_TAGCANVAS")),
-    'tc_interval' => array("var" => "CMS_VAR[20]", "default" => "20", "type" => "text", "info" => mi18n("MSG_INTERVAL")),
-    'tc_maxSpeed' => array("var" => "CMS_VAR[21]", "default" => "0.05", "type" => "text", "info" => mi18n("MSG_MAXSPEED")),
-    'tc_minSpeed' => array("var" => "CMS_VAR[22]", "default" => "0.0", "type" => "text", "info" => mi18n("MSG_MINSPEED")),
-    'tc_dragControl' => array("var" => "CMS_VAR[23]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_DRAGCONTROL")),
-    'tc_dragThreshold' => array("var" => "CMS_VAR[24]", "default" => "4", "type" => "text", "info" => mi18n("MSG_DRAGTHRESHOLD")),
-    'tc_initial' => array("var" => "CMS_VAR[25]", "default" => "null", "type" => "text", "info" => mi18n("MSG_INITIAL")),
-    'tc_fadeIn' => array("var" => "CMS_VAR[26]", "default" => "0", "type" => "text", "info" => mi18n("MSG_FADEIN")),
-    'tc_decel' => array("var" => "CMS_VAR[27]", "default" => "0.95", "type" => "text", "info" => mi18n("MSG_DECEL")),
-    'tc_minBrightness' => array("var" => "CMS_VAR[28]", "default" => "0.1", "type" => "text", "info" => mi18n("MSG_MINBRIGHTNESS")),
-    'tc_maxBrightness' => array("var" => "CMS_VAR[29]", "default" => "1.0", "type" => "text", "info" => mi18n("MSG_MAXBRIGHTNESS")),
-    'tc_textColour' => array("var" => "CMS_VAR[30]", "default" => "#ff99ff", "type" => "text", "info" => mi18n("MSG_TEXTCOLOUR")),
-    'tc_textHeight' => array("var" => "CMS_VAR[31]", "default" => "15", "type" => "text", "info" => mi18n("MSG_TEXTHEIGHT")),
-    'tc_textFont' => array("var" => "CMS_VAR[32]", "default" => "Helvetica, Arial, sans-serif", "type" => "text", "info" => mi18n("MSG_TEXTFONT")),
-    'tc_outlineColour' => array("var" => "CMS_VAR[33]", "default" => "#ffff99", "type" => "text", "info" => mi18n("MSG_OUTLINECOLOUR")),
-    'tc_outlineMethod' => array("var" => "CMS_VAR[34]", "default" => "outline", "type" => "select", "info" => mi18n("MSG_OUTLINEMETHOD")),
-    'tc_outlineThickness' => array("var" => "CMS_VAR[35]", "default" => "2", "type" => "text", "info" => mi18n("MSG_OUTLINETHICKNESS")),
-    'tc_outlineOffset' => array("var" => "CMS_VAR[36]", "default" => "5", "type" => "text", "info" => mi18n("MSG_OUTLINEOFFSET")),
-    'tc_pulsateTo' => array("var" => "CMS_VAR[37]", "default" => "1.0", "type" => "text", "info" => mi18n("MSG_PULSATETO")),
-    'tc_pulsateTime' => array("var" => "CMS_VAR[38]", "default" => "3", "type" => "text", "info" => mi18n("MSG_PULSATETIME")),
-    'tc_depth' => array("var" => "CMS_VAR[39]", "default" => "0.5", "type" => "text", "info" => mi18n("MSG_DEPTH")),
-    'tc_freezeActive' => array("var" => "CMS_VAR[40]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_FREEZEACTIVE")),
-    'tc_freezeDecel' => array("var" => "CMS_VAR[41]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_FREEZEDECEL")),
-    'tc_activeCursor' => array("var" => "CMS_VAR[42]", "default" => "pointer", "type" => "text", "info" => mi18n("MSG_ACTIVECURSOR")),
-    'tc_frontSelect' => array("var" => "CMS_VAR[42]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_FRONTSELECT")),
-    'tc_clickToFront' => array("var" => "CMS_VAR[44]", "default" => "null", "type" => "text", "info" => mi18n("MSG_CLICKTOFRONT")),
-    'tc_txtOpt' => array("var" => "CMS_VAR[45]", "default" => "true", "type" => "bool", "info" => mi18n("MSG_TXTOPT")),
-    'tc_txtScale' => array("var" => "CMS_VAR[46]", "default" => "2", "type" => "text", "info" => mi18n("MSG_TXTSCALE")),
-    'tc_reverse' => array("var" => "CMS_VAR[47]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_REVERSE")),
-    'tc_hideTags' => array("var" => "CMS_VAR[48]", "default" => "true", "type" => "bool", "info" => mi18n("MSG_HIDETAGS")),
-    'tc_zoom' => array("var" => "CMS_VAR[49]", "default" => "1.0", "type" => "text", "info" => mi18n("MSG_ZOOM")),
-    'tc_wheelZoom' => array("var" => "CMS_VAR[50]", "default" => "true", "type" => "bool", "info" => mi18n("MSG_WHEELZOOM")),
-    'tc_zoomStep' => array("var" => "CMS_VAR[51]", "default" => "0.05", "type" => "text", "info" => mi18n("MSG_ZOOMSTEP")),
-    'tc_zoomMax' => array("var" => "CMS_VAR[52]", "default" => "3.0", "type" => "text", "info" => mi18n("MSG_ZOOMMAX")),
-    'tc_zoomMin' => array("var" => "CMS_VAR[53]", "default" => "0.3", "type" => "text", "info" => mi18n("MSG_ZOOMMIN")),
-    'tc_shadow' => array("var" => "CMS_VAR[54]", "default" => "#000000", "type" => "text", "info" => mi18n("MSG_SHADOW")),
-    'tc_shadowBlur' => array("var" => "CMS_VAR[55]", "default" => "0", "type" => "text", "info" => mi18n("MSG_SHADOWBLUR")),
-    'tc_shadowOffset' => array("var" => "CMS_VAR[56]", "default" => "[0,0]", "type" => "text", "info" => mi18n("MSG_SHADOWOFFSET")),
-    'tc_weight' => array("var" => "CMS_VAR[57]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_WEIGHT")),
-    'tc_weightMode' => array("var" => "CMS_VAR[58]", "default" => "size", "type" => "select", "info" => mi18n("MSG_WEIGHTMODE")),
-    'tc_weightSize' => array("var" => "CMS_VAR[59]", "default" => "1.0", "type" => "text", "info" => mi18n("MSG_WEIGHTSIZE")),
-    'tc_weightGradient' => array("var" => "CMS_VAR[60]", "default" => "{0:'#f00', 0.33:'#ff0', 0.66:'#0f0', 1:'#00f'}", "type" => "text", "info" => mi18n("MSG_WEIGHTGRADIENT")),
-    'tc_weightFrom' => array("var" => "CMS_VAR[61]", "default" => "null", "type" => "text", "info" => mi18n("MSG_WEIGHTFROM")),
-    'tc_weightSizeMin' => array("var" => "CMS_VAR[62]", "default" => "null", "type" => "text", "info" => mi18n("MSG_WEIGHTSIZEMIN")),
-    'tc_weightSizeMax' => array("var" => "CMS_VAR[63]", "default" => "null", "type" => "text", "info" => mi18n("MSG_WEIGHTSIZEMAX")),
-    'tc_shape' => array("var" => "CMS_VAR[64]", "default" => "sphere", "type" => "select", "info" => mi18n("MSG_SHAPE")),
-    'tc_lock' => array("var" => "CMS_VAR[65]", "default" => "null", "type" => "text", "info" => mi18n("MSG_LOCK")),
-    'tc_tooltip' => array("var" => "CMS_VAR[66]", "default" => "null", "type" => "select", "info" => mi18n("MSG_TOOLTIP")),
-    'tc_tooltipClass' => array("var" => "CMS_VAR[67]", "default" => "tctooltip", "type" => "text", "info" => mi18n("MSG_TOOLTIPCLASS")),
-    'tc_tooltipDelay' => array("var" => "CMS_VAR[68]", "default" => "300", "type" => "text", "info" => mi18n("MSG_TOOLTIPDELAY")),
-    'tc_radiusX' => array("var" => "CMS_VAR[69]", "default" => "1", "type" => "text", "info" => mi18n("MSG_RADIUSX")),
-    'tc_radiusY' => array("var" => "CMS_VAR[70]", "default" => "1", "type" => "text", "info" => mi18n("MSG_RADIUSY")),
-    'tc_radiusZ' => array("var" => "CMS_VAR[71]", "default" => "1", "type" => "text", "info" => mi18n("MSG_RADIUSZ")),
-    'tc_stretchX' => array("var" => "CMS_VAR[72]", "default" => "1", "type" => "text", "info" => mi18n("MSG_STRETCHX")),
-    'tc_stretchY' => array("var" => "CMS_VAR[73]", "default" => "1", "type" => "text", "info" => mi18n("MSG_STRETCHY")),
-    'tc_offsetX' => array("var" => "CMS_VAR[74]", "default" => "0", "type" => "text", "info" => mi18n("MSG_OFFSETX")),
-    'tc_offsetY' => array("var" => "CMS_VAR[75]", "default" => "0", "type" => "text", "info" => mi18n("MSG_OFFSETY")),
-    'tc_shuffleTags' => array("var" => "CMS_VAR[76]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_SHUFFLETAGS")),
-    'tc_noSelect' => array("var" => "CMS_VAR[77]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_NOSELECT")),
-    'tc_noMouse' => array("var" => "CMS_VAR[78]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_NOMOUSE")),
-    'tc_imageScale' => array("var" => "CMS_VAR[79]", "default" => "1", "type" => "text", "info" => mi18n("MSG_IMAGESCALE")),
-    'tc_centreFunc' => array("var" => "CMS_VAR[80]", "default" => "null", "type" => "text", "info" => mi18n("MSG_CENTREFUNC")),
-    'tc_animTiming' => array("var" => "CMS_VAR[81]", "default" => "Smooth", "type" => "select", "info" => mi18n("MSG_ANIMTIMING")),
-    'tc_splitWidth' => array("var" => "CMS_VAR[82]", "default" => "0", "type" => "text", "info" => mi18n("MSG_SPLITWIDTH")),
-);
+    '_delemiter_tagcanvas' => ['delemiter' => mi18n("MSG_DELEMITER_TAGCANVAS")],
+    'tc_interval' => ["var" => "CMS_VAR[20]", "default" => "20", "type" => "text", "info" => mi18n("MSG_INTERVAL")],
+    'tc_maxSpeed' => ["var" => "CMS_VAR[21]", "default" => "0.05", "type" => "text", "info" => mi18n("MSG_MAXSPEED")],
+    'tc_minSpeed' => ["var" => "CMS_VAR[22]", "default" => "0.0", "type" => "text", "info" => mi18n("MSG_MINSPEED")],
+    'tc_dragControl' => ["var" => "CMS_VAR[23]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_DRAGCONTROL")],
+    'tc_dragThreshold' => ["var" => "CMS_VAR[24]", "default" => "4", "type" => "text", "info" => mi18n("MSG_DRAGTHRESHOLD")],
+    'tc_initial' => ["var" => "CMS_VAR[25]", "default" => "null", "type" => "text", "info" => mi18n("MSG_INITIAL")],
+    'tc_fadeIn' => ["var" => "CMS_VAR[26]", "default" => "0", "type" => "text", "info" => mi18n("MSG_FADEIN")],
+    'tc_decel' => ["var" => "CMS_VAR[27]", "default" => "0.95", "type" => "text", "info" => mi18n("MSG_DECEL")],
+    'tc_minBrightness' => ["var" => "CMS_VAR[28]", "default" => "0.1", "type" => "text", "info" => mi18n("MSG_MINBRIGHTNESS")],
+    'tc_maxBrightness' => ["var" => "CMS_VAR[29]", "default" => "1.0", "type" => "text", "info" => mi18n("MSG_MAXBRIGHTNESS")],
+    'tc_textColour' => ["var" => "CMS_VAR[30]", "default" => "#ff99ff", "type" => "text", "info" => mi18n("MSG_TEXTCOLOUR")],
+    'tc_textHeight' => ["var" => "CMS_VAR[31]", "default" => "15", "type" => "text", "info" => mi18n("MSG_TEXTHEIGHT")],
+    'tc_textFont' => ["var" => "CMS_VAR[32]", "default" => "Helvetica, Arial, sans-serif", "type" => "text", "info" => mi18n("MSG_TEXTFONT")],
+    'tc_outlineColour' => ["var" => "CMS_VAR[33]", "default" => "#ffff99", "type" => "text", "info" => mi18n("MSG_OUTLINECOLOUR")],
+    'tc_outlineMethod' => ["var" => "CMS_VAR[34]", "default" => "outline", "type" => "select", "info" => mi18n("MSG_OUTLINEMETHOD")],
+    'tc_outlineThickness' => ["var" => "CMS_VAR[35]", "default" => "2", "type" => "text", "info" => mi18n("MSG_OUTLINETHICKNESS")],
+    'tc_outlineOffset' => ["var" => "CMS_VAR[36]", "default" => "5", "type" => "text", "info" => mi18n("MSG_OUTLINEOFFSET")],
+    'tc_pulsateTo' => ["var" => "CMS_VAR[37]", "default" => "1.0", "type" => "text", "info" => mi18n("MSG_PULSATETO")],
+    'tc_pulsateTime' => ["var" => "CMS_VAR[38]", "default" => "3", "type" => "text", "info" => mi18n("MSG_PULSATETIME")],
+    'tc_depth' => ["var" => "CMS_VAR[39]", "default" => "0.5", "type" => "text", "info" => mi18n("MSG_DEPTH")],
+    'tc_freezeActive' => ["var" => "CMS_VAR[40]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_FREEZEACTIVE")],
+    'tc_freezeDecel' => ["var" => "CMS_VAR[41]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_FREEZEDECEL")],
+    'tc_activeCursor' => ["var" => "CMS_VAR[42]", "default" => "pointer", "type" => "text", "info" => mi18n("MSG_ACTIVECURSOR")],
+    'tc_frontSelect' => ["var" => "CMS_VAR[42]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_FRONTSELECT")],
+    'tc_clickToFront' => ["var" => "CMS_VAR[44]", "default" => "null", "type" => "text", "info" => mi18n("MSG_CLICKTOFRONT")],
+    'tc_txtOpt' => ["var" => "CMS_VAR[45]", "default" => "true", "type" => "bool", "info" => mi18n("MSG_TXTOPT")],
+    'tc_txtScale' => ["var" => "CMS_VAR[46]", "default" => "2", "type" => "text", "info" => mi18n("MSG_TXTSCALE")],
+    'tc_reverse' => ["var" => "CMS_VAR[47]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_REVERSE")],
+    'tc_hideTags' => ["var" => "CMS_VAR[48]", "default" => "true", "type" => "bool", "info" => mi18n("MSG_HIDETAGS")],
+    'tc_zoom' => ["var" => "CMS_VAR[49]", "default" => "1.0", "type" => "text", "info" => mi18n("MSG_ZOOM")],
+    'tc_wheelZoom' => ["var" => "CMS_VAR[50]", "default" => "true", "type" => "bool", "info" => mi18n("MSG_WHEELZOOM")],
+    'tc_zoomStep' => ["var" => "CMS_VAR[51]", "default" => "0.05", "type" => "text", "info" => mi18n("MSG_ZOOMSTEP")],
+    'tc_zoomMax' => ["var" => "CMS_VAR[52]", "default" => "3.0", "type" => "text", "info" => mi18n("MSG_ZOOMMAX")],
+    'tc_zoomMin' => ["var" => "CMS_VAR[53]", "default" => "0.3", "type" => "text", "info" => mi18n("MSG_ZOOMMIN")],
+    'tc_shadow' => ["var" => "CMS_VAR[54]", "default" => "#000000", "type" => "text", "info" => mi18n("MSG_SHADOW")],
+    'tc_shadowBlur' => ["var" => "CMS_VAR[55]", "default" => "0", "type" => "text", "info" => mi18n("MSG_SHADOWBLUR")],
+    'tc_shadowOffset' => ["var" => "CMS_VAR[56]", "default" => "[0,0]", "type" => "text", "info" => mi18n("MSG_SHADOWOFFSET")],
+    'tc_weight' => ["var" => "CMS_VAR[57]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_WEIGHT")],
+    'tc_weightMode' => ["var" => "CMS_VAR[58]", "default" => "size", "type" => "select", "info" => mi18n("MSG_WEIGHTMODE")],
+    'tc_weightSize' => ["var" => "CMS_VAR[59]", "default" => "1.0", "type" => "text", "info" => mi18n("MSG_WEIGHTSIZE")],
+    'tc_weightGradient' => ["var" => "CMS_VAR[60]", "default" => "{0:'#f00', 0.33:'#ff0', 0.66:'#0f0', 1:'#00f'}", "type" => "text", "info" => mi18n("MSG_WEIGHTGRADIENT")],
+    'tc_weightFrom' => ["var" => "CMS_VAR[61]", "default" => "null", "type" => "text", "info" => mi18n("MSG_WEIGHTFROM")],
+    'tc_weightSizeMin' => ["var" => "CMS_VAR[62]", "default" => "null", "type" => "text", "info" => mi18n("MSG_WEIGHTSIZEMIN")],
+    'tc_weightSizeMax' => ["var" => "CMS_VAR[63]", "default" => "null", "type" => "text", "info" => mi18n("MSG_WEIGHTSIZEMAX")],
+    'tc_shape' => ["var" => "CMS_VAR[64]", "default" => "sphere", "type" => "select", "info" => mi18n("MSG_SHAPE")],
+    'tc_lock' => ["var" => "CMS_VAR[65]", "default" => "null", "type" => "text", "info" => mi18n("MSG_LOCK")],
+    'tc_tooltip' => ["var" => "CMS_VAR[66]", "default" => "null", "type" => "select", "info" => mi18n("MSG_TOOLTIP")],
+    'tc_tooltipClass' => ["var" => "CMS_VAR[67]", "default" => "tctooltip", "type" => "text", "info" => mi18n("MSG_TOOLTIPCLASS")],
+    'tc_tooltipDelay' => ["var" => "CMS_VAR[68]", "default" => "300", "type" => "text", "info" => mi18n("MSG_TOOLTIPDELAY")],
+    'tc_radiusX' => ["var" => "CMS_VAR[69]", "default" => "1", "type" => "text", "info" => mi18n("MSG_RADIUSX")],
+    'tc_radiusY' => ["var" => "CMS_VAR[70]", "default" => "1", "type" => "text", "info" => mi18n("MSG_RADIUSY")],
+    'tc_radiusZ' => ["var" => "CMS_VAR[71]", "default" => "1", "type" => "text", "info" => mi18n("MSG_RADIUSZ")],
+    'tc_stretchX' => ["var" => "CMS_VAR[72]", "default" => "1", "type" => "text", "info" => mi18n("MSG_STRETCHX")],
+    'tc_stretchY' => ["var" => "CMS_VAR[73]", "default" => "1", "type" => "text", "info" => mi18n("MSG_STRETCHY")],
+    'tc_offsetX' => ["var" => "CMS_VAR[74]", "default" => "0", "type" => "text", "info" => mi18n("MSG_OFFSETX")],
+    'tc_offsetY' => ["var" => "CMS_VAR[75]", "default" => "0", "type" => "text", "info" => mi18n("MSG_OFFSETY")],
+    'tc_shuffleTags' => ["var" => "CMS_VAR[76]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_SHUFFLETAGS")],
+    'tc_noSelect' => ["var" => "CMS_VAR[77]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_NOSELECT")],
+    'tc_noMouse' => ["var" => "CMS_VAR[78]", "default" => "false", "type" => "bool", "info" => mi18n("MSG_NOMOUSE")],
+    'tc_imageScale' => ["var" => "CMS_VAR[79]", "default" => "1", "type" => "text", "info" => mi18n("MSG_IMAGESCALE")],
+    'tc_centreFunc' => ["var" => "CMS_VAR[80]", "default" => "null", "type" => "text", "info" => mi18n("MSG_CENTREFUNC")],
+    'tc_animTiming' => ["var" => "CMS_VAR[81]", "default" => "Smooth", "type" => "select", "info" => mi18n("MSG_ANIMTIMING")],
+    'tc_splitWidth' => ["var" => "CMS_VAR[82]", "default" => "0", "type" => "text", "info" => mi18n("MSG_SPLITWIDTH")],
+];
 
 ################################################################################
 ########## Output
 
 ?>
 
-<style type="text/css">
-.mpTagCanvasInput textarea {width:95%;font-family:courier "courier new";}
-.mpTagCanvasInput .code {font-family:courier "courier new";}
+<style>
+.mpTagCanvasInput textarea {width:95%;font-family:courier, "courier new", sans-serif;}
+.mpTagCanvasInput .code {font-family:courier, "courier new", sans-serif;}
 .mpTagCanvasInput .catItem {padding:3px;}
 .mpTagCanvasInput .addCategory {cursor:pointer;vertical-align:middle;}
 .mpTagCanvasInput .removeCategory {cursor:pointer;vertical-align:middle;margin:left:5px;}
@@ -234,7 +238,7 @@ $aModuleInputs = array(
 
             <!-- Manual -->
             <div id="tabssub-<?php echo $oModule->getUid() ?>-1">
-                <table cellspacing="0" border="0">
+                <table>
                 <tr>
                     <td class="text_medium">
                         <p><?php echo $aModuleInputs['manualInput']['info']; ?></p>
@@ -248,13 +252,13 @@ $aModuleInputs = array(
 
             <!-- Categories/Articles -->
             <div id="tabssub-<?php echo $oModule->getUid() ?>-2">
-                <table cellspacing="0" border="0">
+                <table>
                 <tr>
                     <td class="text_medium">
                         <div id="mpTagCanvasArticlesCategory-<?php echo $oModule->getUid() ?>">
                             <p><strong><?php echo $aModuleInputs['categories']['info']; ?></strong></p>
                             <?php echo $oModule->renderInputItem('categories', $aModuleInputs['categories']); ?>
-                            <img class="addCategory" src="images/but_art_new.gif" title="<?php echo mi18n("MSG_ADD_CATEGORY"); ?>">
+                            <img class="addCategory" src="images/but_art_new.gif" title="<?php echo mi18n("MSG_ADD_CATEGORY"); ?>" alt="<?php echo mi18n("MSG_ADD_CATEGORY"); ?>">
                             <br>
                         </div>
                         <br>
@@ -303,7 +307,7 @@ $aModuleInputs = array(
 
     <!-- TagCanvas options -->
     <div id="tabs-<?php echo $oModule->getUid() ?>-2">
-        <table cellspacing="0" cellpadding="3" border="0">
+        <table>
         <tr>
             <th colspan="2" class="text_medium" style="text-align:left">
                 <?php echo mi18n("MSG_OPTION") ?>

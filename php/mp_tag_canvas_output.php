@@ -9,12 +9,22 @@
  * @license     http://www.gnu.org/licenses/gpl-2.0.html - GNU General Public License, version 2
  */
 
+/**
+ * @var int $cCurrentModule
+ * @var int $cCurrentContainer
+ */
+
+################################################################################
+########## Initialization/Settings
 
 // Includes
 cInclude('module', 'includes/class.module.mptagcanvas.php');
 
+$client = cRegistry::getClientId();
+$lang = cRegistry::getLanguageId();
+
 // Module configuration
-$aModuleConfiguration = array(
+$aModuleConfiguration = [
     'debug' => false,
     'name' => 'mpTagCanvas',
     'idmod' => $cCurrentModule,
@@ -103,7 +113,7 @@ $aModuleConfiguration = array(
     'cfg' => cRegistry::getConfig(),
     'client' => $client,
     'lang' => $lang,
-);
+];
 //##echo "<pre>" . print_r($aModuleConfiguration, true) . "</pre>";
 
 // Create module class instance
